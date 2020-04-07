@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.kotlin_random_chat.domain.signin.SigninViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fef01b"
+        android:padding="20dp"
+        tools:context=".domain.signin.SigninActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Random Chat"
+            android:textAlignment="center"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/nickName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/nickName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your nick name"
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="@={viewModel.nickName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#3C1F18"
+            android:textColor="@android:color/white"
+            android:onClick="@{(v) -> viewModel.signIn()}"
+            android:text="채팅 시작"
+            app:layout_constraintTop_toBottomOf="@id/nickName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
